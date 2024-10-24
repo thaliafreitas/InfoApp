@@ -30,6 +30,8 @@
 		F60035F72CCA996500F60B8E /* WebViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60035EA2CCA996500F60B8E /* WebViewViewController.swift */; };
 		F60035F82CCA996500F60B8E /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60035EB2CCA996500F60B8E /* FeedViewModel.swift */; };
 		F60035F92CCA996500F60B8E /* ViewCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60035ED2CCA996500F60B8E /* ViewCode.swift */; };
+		F60035FB2CCA9B0700F60B8E /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60035FA2CCA9B0600F60B8E /* LoadingView.swift */; };
+		F60035FD2CCAAD4500F60B8E /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60035FC2CCAAD4500F60B8E /* ErrorView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +84,8 @@
 		F60035EA2CCA996500F60B8E /* WebViewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewViewController.swift; sourceTree = "<group>"; };
 		F60035EB2CCA996500F60B8E /* FeedViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
 		F60035ED2CCA996500F60B8E /* ViewCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewCode.swift; sourceTree = "<group>"; };
+		F60035FA2CCA9B0600F60B8E /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		F60035FC2CCAAD4500F60B8E /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		FBEB2B4F6EA82672FE0CE41B /* Pods_InfoApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InfoApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -206,6 +210,8 @@
 			isa = PBXGroup;
 			children = (
 				F60035E52CCA996500F60B8E /* CardCell.swift */,
+				F60035FA2CCA9B0600F60B8E /* LoadingView.swift */,
+				F60035FC2CCAAD4500F60B8E /* ErrorView.swift */,
 				F60035E62CCA996500F60B8E /* APIManager.swift */,
 				F60035E72CCA996500F60B8E /* G1FeedViewController.swift */,
 				F60035E82CCA996500F60B8E /* AgroNegocioViewController.swift */,
@@ -471,12 +477,14 @@
 				F60035F52CCA996500F60B8E /* AgroNegocioViewController.swift in Sources */,
 				F60035F32CCA996500F60B8E /* APIManager.swift in Sources */,
 				F60035F22CCA996500F60B8E /* CardCell.swift in Sources */,
+				F60035FB2CCA9B0700F60B8E /* LoadingView.swift in Sources */,
 				F60035F72CCA996500F60B8E /* WebViewViewController.swift in Sources */,
 				F60035952CCA8DEA00F60B8E /* AppDelegate.swift in Sources */,
 				F60035F92CCA996500F60B8E /* ViewCode.swift in Sources */,
 				F60035972CCA8DEA00F60B8E /* SceneDelegate.swift in Sources */,
 				F60035F02CCA996500F60B8E /* Extension+ImageView.swift in Sources */,
 				F60035EE2CCA996500F60B8E /* Extension+UITableView.swift in Sources */,
+				F60035FD2CCAAD4500F60B8E /* ErrorView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

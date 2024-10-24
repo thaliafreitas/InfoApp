@@ -32,29 +32,23 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 extension SceneDelegate {
     private func getTabBar() -> UITabBarController {
         let tabBar = UITabBarController()
-        
+        tabBar.tabBar.tintColor = UIColor.red
+        tabBar.tabBar.barTintColor = UIColor.white
         let g1FeedViewController = G1FeedViewController()
         let g1NavigationViewController = UINavigationController(rootViewController: g1FeedViewController)
-        g1FeedViewController.title = "G1 Notícias"
+        g1FeedViewController.title = "Notícias"
         
         let agroFeedViewController = AgroNegocioViewController()
         let agroNavigationViewController = UINavigationController(rootViewController: agroFeedViewController)
-        agroFeedViewController.title = "Agro Notícias"
-        
-//        let menuViewController = MenuViewController()
-//        let menuNavigationViewController = UINavigationController(rootViewController: menuViewController)
-//        menuViewController.title = "Menu"
+        agroFeedViewController.title = "Lançamentos"
         
         tabBar.viewControllers = [g1NavigationViewController, agroNavigationViewController]
-        g1NavigationViewController.tabBarItem = UITabBarItem(title: "G1",
+        g1NavigationViewController.tabBarItem = UITabBarItem(title: "IBGE",
                                                              image: UIImage(named: "home"),
                                                              tag: 1)
-        agroNavigationViewController.tabBarItem = UITabBarItem(title: "Agro",
+        agroNavigationViewController.tabBarItem = UITabBarItem(title: "IBGE News",
                                                                image: UIImage(named: "news"),
                                                                tag: 1)
-//        menuNavigationViewController.tabBarItem = UITabBarItem(title: "Menu",
-//                                                               image: UIImage(named: "menu"),
-//                                                               tag: 1)
         return tabBar
     }
 }
