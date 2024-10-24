@@ -47,3 +47,5 @@ Carthage/Checkouts/
 *.log
 *.lock
 
+InfoApp.xcodeproj/project.pbxproj
+InfoApp.xcodeproj/xcuserdata/thalia.xcuserdatad/xcschemes/xcschememanagement.plist
