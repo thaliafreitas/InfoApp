@@ -209,15 +209,10 @@
 		F60035E42CCA996500F60B8E /* FeedScene */ = {
 			isa = PBXGroup;
 			children = (
-				F60035E52CCA996500F60B8E /* CardCell.swift */,
-				F60035FA2CCA9B0600F60B8E /* LoadingView.swift */,
-				F60035FC2CCAAD4500F60B8E /* ErrorView.swift */,
-				F60035E62CCA996500F60B8E /* APIManager.swift */,
-				F60035E72CCA996500F60B8E /* G1FeedViewController.swift */,
-				F60035E82CCA996500F60B8E /* AgroNegocioViewController.swift */,
-				F60035E92CCA996500F60B8E /* G1Provider.swift */,
-				F60035EA2CCA996500F60B8E /* WebViewViewController.swift */,
-				F60035EB2CCA996500F60B8E /* FeedViewModel.swift */,
+				F60036012CCAC15700F60B8E /* Controllers */,
+				F60036002CCAC11000F60B8E /* Service */,
+				F60036022CCAC16B00F60B8E /* Model */,
+				F60035FE2CCAC0D800F60B8E /* Views */,
 			);
 			path = FeedScene;
 			sourceTree = "<group>";
@@ -228,6 +223,51 @@
 				F60035ED2CCA996500F60B8E /* ViewCode.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		F60035FE2CCAC0D800F60B8E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F60035FF2CCAC0FB00F60B8E /* Cells */,
+				F60035FC2CCAAD4500F60B8E /* ErrorView.swift */,
+				F60035FA2CCA9B0600F60B8E /* LoadingView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		F60035FF2CCAC0FB00F60B8E /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				F60035E52CCA996500F60B8E /* CardCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		F60036002CCAC11000F60B8E /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				F60035E62CCA996500F60B8E /* APIManager.swift */,
+				F60035E92CCA996500F60B8E /* G1Provider.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		F60036012CCAC15700F60B8E /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				F60035E72CCA996500F60B8E /* G1FeedViewController.swift */,
+				F60035E82CCA996500F60B8E /* AgroNegocioViewController.swift */,
+				F60035EA2CCA996500F60B8E /* WebViewViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		F60036022CCAC16B00F60B8E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F60035EB2CCA996500F60B8E /* FeedViewModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

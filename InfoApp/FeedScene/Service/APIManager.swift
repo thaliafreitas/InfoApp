@@ -16,7 +16,6 @@ class APIManager {
 
     var itemG1: [Item] = []
     var itemAgro: [Item] = []
-//    var itemMenu: [MenuItem] = []
     var currentPage = 1
 
     func fetchG1Feed(completion: @escaping ([Item]) -> Void, failure: @escaping (Error) -> Void) {
@@ -79,11 +78,10 @@ class APIManager {
                 for item in feed.items {
                         self.itemG1.append(item)
                 }
-                // Atualiza a página atual para a próxima
                 self.currentPage = feed.nextPage
-                completion(self.itemG1) // Retorna os itens atualizados
+                completion(self.itemG1)
             case .failure(let error):
-                failure(error) // Retorna o erro
+                failure(error)
             }
         }
     }
