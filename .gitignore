@@ -1,0 +1,49 @@
+# Xcode
+DerivedData/
+*.xcuserdatad
+*.xcworkspace
+*.xcuserdata
+*.xcodeproj/project.xcworkspace/xcuserdata/
+*.xcodeproj/xcuserdata/
+*.xcodeproj/xcuserdata/*.xcuserdatad
+*.xcodeproj/project.xcworkspace/xcuserdata/*.xcuserdatad
+*.xcodeproj/xcuserdata/*.xcuserdatad
+*.xcuserstate
+*.pbxproj
+
+# Swift Package Manager
+.build/
+Packages/
+.package.resolved
+
+# CocoaPods
+Pods/
+Podfile.lock
+
+# Carthage
+Carthage/Build/
+Carthage/Checkouts/
+
+# User-specific files
+*.swp
+*.swo
+*.DS_Store
+*.swp
+
+# App-specific files
+*.ipa
+*.app
+*.dSYM.zip
+*.dSYM
+
+# Build generated files
+*.o
+*.linkfilelist
+*.hmap
+*.a
+*.app.dSYM
+
+# Others
+*.log
+*.lock
+
