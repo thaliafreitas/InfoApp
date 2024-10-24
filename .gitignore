@@ -9,7 +9,9 @@ DerivedData/
 *.xcodeproj/project.xcworkspace/xcuserdata/*.xcuserdatad
 *.xcodeproj/xcuserdata/*.xcuserdatad
 *.xcuserstate
-*.pbxproj
+
+# Ignorar apenas arquivos de usuário
+InfoApp.xcodeproj/xcuserdata/*
 
 # Swift Package Manager
 .build/
@@ -46,6 +48,3 @@ Carthage/Checkouts/
 # Others
 *.log
 *.lock
-
-InfoApp.xcodeproj/project.pbxproj
-InfoApp.xcodeproj/xcuserdata/thalia.xcuserdatad/xcschemes/xcschememanagement.plist
