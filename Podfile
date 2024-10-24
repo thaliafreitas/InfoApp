@@ -9,6 +9,7 @@ target 'InfoApp' do
 
   pod 'SwiftLint'
   pod 'Alamofire'
+  pod 'SkeletonView'
 
   target 'InfoAppTests' do
     inherit! :search_paths
