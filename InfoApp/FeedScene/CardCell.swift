@@ -5,79 +5,38 @@
 //  Created by Thalia on 24/10/24.
 //
 
-import Foundation
 import UIKit
+import SkeletonView
 
 class CardCell: UITableViewCell {
     
     private let imageDefault = UIImage(named: "placeHolder")
 
-    lazy var noticeImage: UIImageView = {
-        var image = UIImageView()
+    private let noticeImage: UIImageView = {
+        let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
         image.contentMode = .scaleToFill
         image.clipsToBounds = true
         image.layer.cornerRadius = 24
-        image.image = imageDefault
+        image.image = UIImage(named: "placeHolder")
+        image.isSkeletonable = true
         return image
     }()
 
-    lazy var noticeTitle: UILabel = {
-        let textLabel = UILabel()
-        textLabel.translatesAutoresizingMaskIntoConstraints = false
-        textLabel.adjustsFontForContentSizeCategory = true
-        textLabel.textColor = .textColor
-        textLabel.textAlignment = .natural
-        textLabel.numberOfLines = 0
-        textLabel.backgroundColor = .clear
-        textLabel.font = UIFont.boldSystemFont(ofSize: 16)
-        textLabel.layer.cornerRadius = 24
-        return textLabel
-    }()
-
-    lazy var noticeDescription: UILabel = {
-        let textLabel = UILabel()
-        textLabel.translatesAutoresizingMaskIntoConstraints = false
-        textLabel.adjustsFontForContentSizeCategory = true
-        textLabel.textColor = .textColor
-        textLabel.textAlignment = .natural
-        textLabel.backgroundColor = .clear
-        textLabel.numberOfLines = 0
-        textLabel.font = textLabel.font.withSize(14)
-        textLabel.layer.cornerRadius = 24
-        return textLabel
-    }()
-
-    lazy var chapeuLabel: UILabel = {
-        let textLabel = UILabel()
-        textLabel.translatesAutoresizingMaskIntoConstraints = false
-        textLabel.adjustsFontForContentSizeCategory = true
-        textLabel.textColor = .white
-        textLabel.textAlignment = .justified
-        textLabel.font = UIFont.boldSystemFont(ofSize: 14)
-        textLabel.layer.cornerRadius = 24
-        return textLabel
-    }()
-
-    lazy var chapeuView: UIView = {
-        var view = UIView()
+    private let noticeTitle: UILabel = createLabel(font: .boldSystemFont(ofSize: 16), textColor: .textColor)
+    private let noticeDescription: UILabel = createLabel(font: .systemFont(ofSize: 14), textColor: .textColor)
+    private let chapeuLabel: UILabel = createLabel(font: .boldSystemFont(ofSize: 14), textColor: .white)
+    
+    private let chapeuView: UIView = {
+        let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.contentMode = .scaleAspectFit
         view.clipsToBounds = true
         view.backgroundColor = .red
+        view.isSkeletonable = true
         return view
     }()
-
-    lazy var timeLabel: UILabel = {
-        let textLabel = UILabel()
-        textLabel.translatesAutoresizingMaskIntoConstraints = false
-        textLabel.adjustsFontForContentSizeCategory = true
-        textLabel.textColor = .textColor
-        textLabel.textAlignment = .justified
-        textLabel.font = UIFont.italicSystemFont(ofSize: 14)
-        textLabel.layer.cornerRadius = 14
-        return textLabel
-    }()
+    
+    private let timeLabel: UILabel = createLabel(font: .italicSystemFont(ofSize: 14), textColor: .textColor)
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -86,50 +45,55 @@ class CardCell: UITableViewCell {
     }
 
     required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has ot been implemented")
+        fatalError("init(coder:) has not been implemented")
     }
 
+    private static func createLabel(font: UIFont, textColor: UIColor) -> UILabel {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.adjustsFontForContentSizeCategory = true
+        label.textColor = textColor
+        label.numberOfLines = 0
+        label.backgroundColor = .clear
+        label.font = font
+        label.isSkeletonable = true
+        return label
+    }
 }
 
 extension CardCell: ViewCode {
 
     func setupConstraints() {
         let defaultMargins: CGFloat = 16
-        let noticeConstraints = noticeTitle.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
-
         let imageHeight = noticeImage.heightAnchor.constraint(equalToConstant: 250)
 
-        noticeConstraints.priority = .defaultLow
-            NSLayoutConstraint.activate([
+        NSLayoutConstraint.activate([
+            noticeImage.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 2 * defaultMargins),
+            noticeImage.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: defaultMargins),
+            noticeImage.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -defaultMargins),
+            imageHeight,
 
-                noticeImage.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 2*defaultMargins),
-                noticeImage.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: defaultMargins),
-                noticeImage.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -defaultMargins),
-                imageHeight,
+            timeLabel.topAnchor.constraint(equalTo: noticeImage.bottomAnchor, constant: 4),
+            timeLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -defaultMargins),
+            timeLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: defaultMargins),
 
-                timeLabel.topAnchor.constraint(equalTo: noticeImage.bottomAnchor, constant: 4),
-                timeLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -defaultMargins),
-                timeLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: defaultMargins),
-                timeLabel.bottomAnchor.constraint(equalTo: noticeTitle.topAnchor),
+            noticeTitle.topAnchor.constraint(equalTo: timeLabel.bottomAnchor, constant: 4),
+            noticeTitle.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -defaultMargins),
+            noticeTitle.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: defaultMargins),
 
-                noticeTitle.topAnchor.constraint(equalTo: timeLabel.bottomAnchor, constant: 4),
-                noticeTitle.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -defaultMargins),
-                noticeTitle.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: defaultMargins),
+            noticeDescription.topAnchor.constraint(equalTo: noticeTitle.bottomAnchor),
+            noticeDescription.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: defaultMargins),
+            noticeDescription.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -defaultMargins),
+            noticeDescription.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
 
-                noticeDescription.topAnchor.constraint(equalTo: noticeTitle.bottomAnchor),
-                noticeDescription.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: defaultMargins),
-                noticeDescription.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -defaultMargins),
-                noticeDescription.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            chapeuView.topAnchor.constraint(equalTo: noticeImage.topAnchor, constant: 24),
+            chapeuView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: defaultMargins),
 
-                chapeuView.topAnchor.constraint(equalTo: noticeImage.topAnchor, constant: 24),
-                chapeuView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: defaultMargins),
-
-                chapeuLabel.trailingAnchor.constraint(equalTo: chapeuView.trailingAnchor, constant: -8),
-                chapeuLabel.leadingAnchor.constraint(equalTo: chapeuView.leadingAnchor, constant: 8),
-                chapeuLabel.topAnchor.constraint(equalTo: chapeuView.topAnchor),
-                chapeuLabel.bottomAnchor.constraint(equalTo: chapeuView.bottomAnchor),
-                noticeConstraints
-            ])
+            chapeuLabel.trailingAnchor.constraint(equalTo: chapeuView.trailingAnchor, constant: -8),
+            chapeuLabel.leadingAnchor.constraint(equalTo: chapeuView.leadingAnchor, constant: 8),
+            chapeuLabel.topAnchor.constraint(equalTo: chapeuView.topAnchor),
+            chapeuLabel.bottomAnchor.constraint(equalTo: chapeuView.bottomAnchor)
+        ])
     }
 
     func buildViewHierarchy() {
